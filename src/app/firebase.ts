@@ -1,13 +1,14 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { runtimeEnv } from './runtime-env';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAABnQcRESMd3gwnxgY3Mbvj1n8flBhg-k',
-  authDomain: 'monster-challenge-edbce.firebaseapp.com',
-  projectId: 'monster-challenge-edbce',
-  storageBucket: 'monster-challenge-edbce.firebasestorage.app',
-  messagingSenderId: '103445026096',
-  appId: '1:103445026096:web:94e021f079af29cc2b24f5'
+  apiKey: runtimeEnv.FIREBASE_API_KEY,
+  authDomain: runtimeEnv.FIREBASE_AUTH_DOMAIN,
+  projectId: runtimeEnv.FIREBASE_PROJECT_ID,
+  storageBucket: runtimeEnv.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: runtimeEnv.FIREBASE_MESSAGING_SENDER_ID,
+  appId: runtimeEnv.FIREBASE_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
