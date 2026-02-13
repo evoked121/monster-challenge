@@ -141,8 +141,6 @@ import { runtimeEnv } from './runtime-env';
             <button nz-button nzType="primary" class="submit-btn" [disabled]="submitting">
               {{ submitting ? 'Submitting...' : 'Submit Flight Info' }}
             </button>
-
-            <pre class="debug-box">{{ formValuePreview }}</pre>
           </form>
         }
       </nz-card>
@@ -184,17 +182,6 @@ import { runtimeEnv } from './runtime-env';
       nz-time-picker,
       nz-input-number {
         width: 100%;
-      }
-
-      .debug-box {
-        margin-top: 16px;
-        padding: 12px;
-        border-radius: 8px;
-        background: #f5f7ff;
-        border: 1px solid #e5e7eb;
-        color: #374151;
-        font-size: 12px;
-        white-space: pre-wrap;
       }
 
       .submit-btn {
@@ -257,6 +244,11 @@ export class HomeComponent implements OnInit {
     if (!arrivalDate || !arrivalTime) {
       return;
     }
+    const arrivalDateOnly = [
+      arrivalDate.getFullYear(),
+      `${arrivalDate.getMonth() + 1}`.padStart(2, '0'),
+      `${arrivalDate.getDate()}`.padStart(2, '0'),
+    ].join('-');
 
     const payload: {
       airline: string;
@@ -267,7 +259,7 @@ export class HomeComponent implements OnInit {
       comments?: string;
     } = {
       airline: airline!.trim(),
-      arrivalDate: arrivalDate.toISOString(),
+      arrivalDate: arrivalDateOnly,
       arrivalTime: this.toHHmm(arrivalTime),
       flightNumber: flightNumber!.trim(),
       numOfGuests: Number(numOfGuests),
