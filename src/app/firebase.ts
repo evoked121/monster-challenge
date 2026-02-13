@@ -1,14 +1,14 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-import { runtimeEnv } from './runtime-env';
+import { environment } from '../environments/environment';
 
 const firebaseConfig = {
-  apiKey: runtimeEnv.FIREBASE_API_KEY,
-  authDomain: runtimeEnv.FIREBASE_AUTH_DOMAIN,
-  projectId: runtimeEnv.FIREBASE_PROJECT_ID,
-  storageBucket: runtimeEnv.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: runtimeEnv.FIREBASE_MESSAGING_SENDER_ID,
-  appId: runtimeEnv.FIREBASE_APP_ID
+  apiKey: environment.firebase.apiKey,
+  authDomain: environment.firebase.authDomain,
+  projectId: environment.firebase.projectId,
+  storageBucket: environment.firebase.storageBucket,
+  messagingSenderId: environment.firebase.messagingSenderId,
+  appId: environment.firebase.appId
 };
 
 const app = initializeApp(firebaseConfig);

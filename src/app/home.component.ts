@@ -11,8 +11,8 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 import { NzResultModule } from 'ng-zorro-antd/result';
 import { NzTimePickerModule } from 'ng-zorro-antd/time-picker';
+import { environment } from '../environments/environment';
 import { auth } from './firebase';
-import { runtimeEnv } from './runtime-env';
 
 @Component({
   selector: 'app-home',
@@ -280,7 +280,7 @@ export class HomeComponent implements OnInit {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            token: runtimeEnv.CHALLENGE_TOKEN,
+            token: environment.challengeToken,
             candidate: 'Haoran Wang',
           },
           body: JSON.stringify(payload),

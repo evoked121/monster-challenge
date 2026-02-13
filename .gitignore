@@ -43,5 +43,5 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 
-# Local runtime env (secrets)
-/public/env.js
+src/environments/environment.ts
+src/environments/environment.development.ts
